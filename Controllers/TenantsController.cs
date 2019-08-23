@@ -1,26 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TenantsApi.Models;
-using System.Threading.Tasks;
+
 
 namespace TenantsApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     [ApiController]
     public class TenantsController : ControllerBase
     {
 
-        private readonly TenantContext _context;
+        public readonly TenantContext _context;
 
         public TenantsController(TenantContext context) => _context = context;
 
         //GET: /api/tenants
-        public async Task<IEnumerable<Tenant>> GetTenants()
+        [HttpGet]
+        public ActionResult<IEnumerable<Tenant>> GetTenants()
         {
-            return await _context.TenantDetails.ToListAsync();
 
-            //return new string[] { "Hello", "World" };
+            return _context.TenantDetails;
         }
 
         //GET /api/tenants/{id}
