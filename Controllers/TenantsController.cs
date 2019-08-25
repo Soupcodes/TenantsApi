@@ -46,10 +46,10 @@ namespace TenantsApi.Controllers
             _context.TenantDetails.Add(tenant);
             _context.SaveChanges();
 
-            return CreatedAtAction("GetTenantDetails", new Tenant { Id = tenant.Id }, tenant);
+            return CreatedAtAction("PostTenantDetails", new Tenant { Id = tenant.Id }, tenant);
         }
 
-        /*PUT /api/tenants/{id}
+        //PUT /api/tenants/{id}
         [HttpPut("{id}")]
         public ActionResult PutTenantDetails(int id, Tenant tenant)
         {
@@ -63,7 +63,7 @@ namespace TenantsApi.Controllers
             _context.SaveChanges();
 
             return NoContent();
-        }*/
+        }
 
         //DELETE /api/tenants/{id}
 

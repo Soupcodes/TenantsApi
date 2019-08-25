@@ -9,8 +9,8 @@ using TenantsApi.Models;
 namespace TenantsApi.Migrations
 {
     [DbContext(typeof(TenantContext))]
-    [Migration("20190821211324_AddTenantToDB")]
-    partial class AddTenantToDB
+    [Migration("20190825112449_AddTablesToDB")]
+    partial class AddTablesToDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,42 @@ namespace TenantsApi.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("TenantsApi.Models.Landlord", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("Surname");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LandlordDetails");
+                });
+
+            modelBuilder.Entity("TenantsApi.Models.Maintenance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Issue");
+
+                    b.Property<string>("Room");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MaintenanceDetails");
+                });
 
             modelBuilder.Entity("TenantsApi.Models.Tenant", b =>
                 {

@@ -25,14 +25,14 @@ namespace TenantsApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+            /*if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
                 services.AddDbContext<TenantContext>(options =>
-                        options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
-            /*else 
+                        options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));*/
+             
             services.AddDbContext<TenantContext>
-                (opt => opt.UseSqlServer(Configuration["Data:TenantsAPIConnection:ConnectionString"]));*/
+                (opt => opt.UseSqlServer(Configuration["Data:TenantsAPIConnection:ConnectionString"]));
 
-            services.BuildServiceProvider().GetService<TenantContext>().Database.Migrate();
+            //services.BuildServiceProvider().GetService<TenantContext>().Database.Migrate();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());

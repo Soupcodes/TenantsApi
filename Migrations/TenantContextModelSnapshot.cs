@@ -18,6 +18,42 @@ namespace TenantsApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("TenantsApi.Models.Landlord", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("Surname");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LandlordDetails");
+                });
+
+            modelBuilder.Entity("TenantsApi.Models.Maintenance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Issue");
+
+                    b.Property<string>("Room");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MaintenanceDetails");
+                });
+
             modelBuilder.Entity("TenantsApi.Models.Tenant", b =>
                 {
                     b.Property<int>("Id")
