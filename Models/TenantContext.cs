@@ -10,6 +10,7 @@ namespace TenantsApi.Models
 
         public DbSet<Tenant> TenantDetails { get; set; }
         public DbSet<Landlord> LandlordDetails { get; set; }
+        public DbSet<Maintenance> MaintenanceDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
