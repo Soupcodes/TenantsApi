@@ -18,25 +18,6 @@ namespace TenantsApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TenantsApi.Models.Landlord", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("Surname");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LandlordDetails");
-                });
-
             modelBuilder.Entity("TenantsApi.Models.Maintenance", b =>
                 {
                     b.Property<int>("Id")
@@ -52,6 +33,27 @@ namespace TenantsApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MaintenanceDetails");
+                });
+
+            modelBuilder.Entity("TenantsApi.Models.Property", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("PropertyName");
+
+                    b.Property<double>("RentAmount");
+
+                    b.Property<string>("RentDueDate");
+
+                    b.Property<string>("Username");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PropertyDetails");
                 });
 
             modelBuilder.Entity("TenantsApi.Models.Tenant", b =>

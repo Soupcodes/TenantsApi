@@ -9,13 +9,13 @@ namespace TenantsApi.Models
         }
 
         public DbSet<Tenant> TenantDetails { get; set; }
-        public DbSet<Landlord> LandlordDetails { get; set; }
+        public DbSet<Property> PropertyDetails { get; set; }
         public DbSet<Maintenance> MaintenanceDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Tenant>().ToTable("TenantDetails");
-            modelBuilder.Entity<Landlord>().ToTable("LandlordDetails");
+            modelBuilder.Entity<Property>().ToTable("PropertyDetails");
             modelBuilder.Entity<Maintenance>().ToTable("MaintenanceDetails");
         }
     }

@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 
 namespace TenantsApi.Models
 {
-    public class Landlord
+    public class Property
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string FirstName { get; set; }
-        public string Surname { get; set; }
+        public string Username { get; set; }
+        public string PropertyName { get; set; }
         public string Address { get; set; }
+        public string RentDueDate { get; set; }
+        public double RentAmount { get; set; }
     }
 }

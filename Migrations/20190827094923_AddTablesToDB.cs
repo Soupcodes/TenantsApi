@@ -8,22 +8,6 @@ namespace TenantsApi.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "LandlordDetails",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_LandlordDetails", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "MaintenanceDetails",
                 columns: table => new
                 {
@@ -36,6 +20,23 @@ namespace TenantsApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MaintenanceDetails", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PropertyDetails",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Username = table.Column<string>(nullable: true),
+                    PropertyName = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    RentDueDate = table.Column<string>(nullable: true),
+                    RentAmount = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PropertyDetails", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -60,10 +61,10 @@ namespace TenantsApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "LandlordDetails");
+                name: "MaintenanceDetails");
 
             migrationBuilder.DropTable(
-                name: "MaintenanceDetails");
+                name: "PropertyDetails");
 
             migrationBuilder.DropTable(
                 name: "TenantDetails");

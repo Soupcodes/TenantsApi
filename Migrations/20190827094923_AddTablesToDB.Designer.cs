@@ -9,7 +9,7 @@ using TenantsApi.Models;
 namespace TenantsApi.Migrations
 {
     [DbContext(typeof(TenantContext))]
-    [Migration("20190825112449_AddTablesToDB")]
+    [Migration("20190827094923_AddTablesToDB")]
     partial class AddTablesToDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,25 +19,6 @@ namespace TenantsApi.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("TenantsApi.Models.Landlord", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("Surname");
-
-                    b.Property<string>("Title");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LandlordDetails");
-                });
 
             modelBuilder.Entity("TenantsApi.Models.Maintenance", b =>
                 {
@@ -54,6 +35,27 @@ namespace TenantsApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MaintenanceDetails");
+                });
+
+            modelBuilder.Entity("TenantsApi.Models.Property", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("PropertyName");
+
+                    b.Property<double>("RentAmount");
+
+                    b.Property<string>("RentDueDate");
+
+                    b.Property<string>("Username");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PropertyDetails");
                 });
 
             modelBuilder.Entity("TenantsApi.Models.Tenant", b =>
