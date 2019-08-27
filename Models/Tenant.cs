@@ -7,11 +7,11 @@ namespace TenantsApi.Models
     {
         public int Id { get; set; }
         //[Required]
-        public string Title { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
-        public double Rent { get; set; }
+        public double RentAmount { get; set; }
         public string Address { get; set; }
+        public string TenancyExpires { get; set; }
     }
 }
