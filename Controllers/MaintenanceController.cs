@@ -38,7 +38,7 @@ namespace TenantsApi.Controllers
 
         // POST: api/Maintenance
         [HttpPost]
-        public ActionResult<Maintenance> PostMaintenanceDetails(Maintenance maintenance)
+        public ActionResult<Maintenance> PostMaintenanceDetails([FromBody] Maintenance maintenance)
         {
             _context.MaintenanceDetails.Add(maintenance);
             _context.SaveChanges();

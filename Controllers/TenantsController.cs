@@ -41,7 +41,7 @@ namespace TenantsApi.Controllers
 
         //POST /api/tenants
         [HttpPost]
-        public ActionResult<Tenant> PostTenantDetails(Tenant tenant)
+        public ActionResult<Tenant> PostTenantDetails([FromBody] Tenant tenant)
         {
             _context.TenantDetails.Add(tenant);
             _context.SaveChanges();

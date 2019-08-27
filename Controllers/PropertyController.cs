@@ -38,7 +38,7 @@ namespace TenantsApi.Controllers
 
         // POST: api/Property
         [HttpPost]
-        public ActionResult<Property> PostPropertyDetails(Property property)
+        public ActionResult<Property> PostPropertyDetails([FromBody] Property property)
         {
             _context.PropertyDetails.Add(property);
             _context.SaveChanges();
