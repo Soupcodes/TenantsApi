@@ -25,9 +25,9 @@ namespace TenantsApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(c =>
+            services.AddCors(o =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                o.AddPolicy("MyPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
             services.AddDbContext<TenantContext>
                 (opt => opt.UseSqlServer(Configuration["Data:TenantsAPIConnection:ConnectionString"]));
@@ -41,7 +41,7 @@ namespace TenantsApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors("MyPolicy");
             app.UseMvc();
         }
     }
