@@ -9,8 +9,8 @@ using TenantsApi.Models;
 namespace TenantsApi.Migrations
 {
     [DbContext(typeof(TenantContext))]
-    [Migration("20190827142333_AddTablesToDB")]
-    partial class AddTablesToDB
+    [Migration("20190828141053_FinalTableSetupToDB")]
+    partial class FinalTableSetupToDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,7 +30,9 @@ namespace TenantsApi.Migrations
 
                     b.Property<string>("Issue");
 
-                    b.Property<string>("Room");
+                    b.Property<string>("SelectedArea");
+
+                    b.Property<string>("SelectedRoom");
 
                     b.HasKey("Id");
 

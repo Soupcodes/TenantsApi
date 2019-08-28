@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TenantsApi.Migrations
 {
-    public partial class AddTablesToDB : Migration
+    public partial class FinalTableSetupToDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,9 +13,10 @@ namespace TenantsApi.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Room = table.Column<string>(nullable: true),
+                    SelectedRoom = table.Column<string>(nullable: true),
                     Issue = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    SelectedArea = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

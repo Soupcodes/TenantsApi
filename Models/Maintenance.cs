@@ -8,8 +8,9 @@ namespace TenantsApi.Models
     public class Maintenance
     {
         public int Id { get; set; }
-        public string Room { get; set; }
+        public string SelectedRoom { get; set; }
         public string Issue { get; set; }
         public string Description { get; set; }
+        public string SelectedArea { get; set; }
     }
 }

@@ -28,7 +28,9 @@ namespace TenantsApi.Migrations
 
                     b.Property<string>("Issue");
 
-                    b.Property<string>("Room");
+                    b.Property<string>("SelectedArea");
+
+                    b.Property<string>("SelectedRoom");
 
                     b.HasKey("Id");
 
