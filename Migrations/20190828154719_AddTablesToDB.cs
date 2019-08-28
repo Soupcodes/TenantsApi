@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TenantsApi.Migrations
 {
-    public partial class FinalTableSetupToDB : Migration
+    public partial class AddTablesToDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,8 @@ namespace TenantsApi.Migrations
                     SelectedRoom = table.Column<string>(nullable: true),
                     Issue = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    SelectedArea = table.Column<string>(nullable: true)
+                    SelectedArea = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

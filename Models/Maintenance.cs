@@ -12,5 +12,6 @@ namespace TenantsApi.Models
         public string Issue { get; set; }
         public string Description { get; set; }
         public string SelectedArea { get; set; }
+        public string Email { get; set; }
     }
 }

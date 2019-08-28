@@ -26,6 +26,8 @@ namespace TenantsApi.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<string>("Email");
+
                     b.Property<string>("Issue");
 
                     b.Property<string>("SelectedArea");

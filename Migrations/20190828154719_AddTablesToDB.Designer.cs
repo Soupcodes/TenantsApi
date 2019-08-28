@@ -9,8 +9,8 @@ using TenantsApi.Models;
 namespace TenantsApi.Migrations
 {
     [DbContext(typeof(TenantContext))]
-    [Migration("20190828141053_FinalTableSetupToDB")]
-    partial class FinalTableSetupToDB
+    [Migration("20190828154719_AddTablesToDB")]
+    partial class AddTablesToDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,8 @@ namespace TenantsApi.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description");
+
+                    b.Property<string>("Email");
 
                     b.Property<string>("Issue");
 
